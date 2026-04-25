@@ -8,7 +8,7 @@ export const createUser = async (payload) => {
     const userData = payload;
     userData.role = 'customer';
     if (payload.key == process.env.ADMIN_SIGNUP_KEY) {
-        userData.role = 'admin;'
+        userData.role = 'admin'
     }
     userData.password = await bcrypt.hash(payload.password, 10);
     let user = await User.create(userData);
@@ -21,7 +21,7 @@ export const login = async (payload) => {
     const user = await getUser(payload);
     const ok = await bcrypt.compare(payload.password, user.password)
     if (!ok) {
-        const error = new Error("Enter passwor is wrong");
+        const error = new Error("Enter password is wrong");
         error.code = 'WRONG_PASSWORD';
         throw error;
     }

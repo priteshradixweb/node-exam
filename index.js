@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 import { sequelize } from "./services/db.js";
 import authRoutes from './routes/auth.js';
 import bookRoutes from './routes/book.js';
+import orderRoutes from './routes/order.js';
 dotenv.config();
 
 const PORT = process.env.APP_PORT;
@@ -17,6 +18,7 @@ app.use(express.urlencoded({ extended: true }));
 // Routes
 app.use('/api/auth/', authRoutes);
 app.use('/api/books/', bookRoutes);
+app.use('/api/orders/', orderRoutes);
 
 try {
   await sequelize.authenticate();

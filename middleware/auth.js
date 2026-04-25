@@ -13,7 +13,10 @@ const auth = (type = 'admin') => async (req, res, next) => {
     const token = authHeader.split(' ')[1];
     try {
         const ok = await jwt.verify(token, process.env.JWT_SECRET);
-        if (ok.role == type) next();
+        if (ok.role == type) {
+            req.currentUser = ok;
+        } next();
+
     } catch (error) {
         console.log(`error`, error);
         return sendError(res, 401, { message: "Invalid token", code: "INVALID_TOKEN" });

@@ -22,15 +22,12 @@ const Book = sequelize.define('Book', {
     },
     stockQuantity: {
         type: DataTypes.INTEGER,
-        column: 'stock_quantity'
     },
     deletedAt: {
         type: DataTypes.DATE,
-        key: 'deleted_at'
     },
     createdAt: {
         type: DataTypes.DATE,
-        key: 'created_at'
     }
 },
     {
@@ -41,6 +38,7 @@ const Book = sequelize.define('Book', {
                 deletedAt: null
             }
         }
-    });
+    }
+);
 
 export default Book;

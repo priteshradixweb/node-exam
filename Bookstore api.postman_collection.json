@@ -1,0 +1,499 @@
+{
+	"info": {
+		"_postman_id": "c60c97fc-2c46-4026-a16f-2f5d29e555c4",
+		"name": "Bookstore api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Registeration",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"pritesh\",\n    \"email\" : \"pritesh.login@gmail.com\",\n    \"password\" : \"PRitesh@123\",\n    \"key\" : \"admin_signup_key\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{basurl}}/api/auth/register",
+							"protocol": "http",
+							"host": [
+								"{{basurl}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n     \"email\" : \"pritesh.login@gmail.com\",\n    \"password\" : \"PRitesh@123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Book",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Book Name\",\n    \"author\" : \"Pritesh\",\n    \"price\" : \"13\",\n    \"stock_quantity\" : 123\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{basurl}}/api/books/",
+							"protocol": "http",
+							"host": [
+								"{{basurl}}"
+							],
+							"path": [
+								"api",
+								"books",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"pritesh\",\n    \"email\" : \"pritesh.login@gmail.com\",\n    \"password\" : \"PRitesh@123\",\n    \"key\" : \"admin_signup_key\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{basurl}}/api/book/",
+							"protocol": "http",
+							"host": [
+								"{{basurl}}"
+							],
+							"path": [
+								"api",
+								"book",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Books",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Book Name\",\n    \"author\" : \"Pritesh\",\n    \"price\" : \"13\",\n    \"stock_quantity\" : 123\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{basurl}}/api/books?page=1&limit=2",
+							"protocol": "http",
+							"host": [
+								"{{basurl}}"
+							],
+							"path": [
+								"api",
+								"books"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Book",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n     \"email\" : \"pritesh.login@gmail.com\",\n    \"password\" : \"PRitesh@123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{basurl}}/api/books/1",
+							"protocol": "http",
+							"host": [
+								"{{basurl}}"
+							],
+							"path": [
+								"api",
+								"books",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Book",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Book Name\",\n    \"author\" : \"Pritesh\",\n    \"price\" : \"13\",\n    \"stock_quantity\" : 123\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{basurl}}/api/books/",
+							"protocol": "http",
+							"host": [
+								"{{basurl}}"
+							],
+							"path": [
+								"api",
+								"books",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Book image",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "attachment",
+									"type": "file",
+									"src": [
+										"/home/pritesh.yadav/Downloads/KRE300_P_P_14_4+x+28_8+MM_569_snehab_patel_12_148250 (8).pdf",
+										"/home/pritesh.yadav/Downloads/KRE300_P_P_14_4+x+28_8+MM_569_snehab_patel_12_148250 (7).pdf",
+										"/home/pritesh.yadav/Downloads/KRE300_P_P_14_4+x+28_8+MM_569_snehab_patel_12_148250 (6).pdf"
+									]
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{basurl}}/api/books/5/images",
+							"protocol": "http",
+							"host": [
+								"{{basurl}}"
+							],
+							"path": [
+								"api",
+								"books",
+								"5",
+								"images"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "attachment",
+									"type": "file",
+									"src": [
+										"/home/pritesh.yadav/Downloads/KRE300_P_P_14_4+x+28_8+MM_569_snehab_patel_12_148250 (8).pdf",
+										"/home/pritesh.yadav/Downloads/KRE300_P_P_14_4+x+28_8+MM_569_snehab_patel_12_148250 (7).pdf",
+										"/home/pritesh.yadav/Downloads/KRE300_P_P_14_4+x+28_8+MM_569_snehab_patel_12_148250 (6).pdf"
+									]
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{basurl}}/api/books/2/images",
+							"protocol": "http",
+							"host": [
+								"{{basurl}}"
+							],
+							"path": [
+								"api",
+								"books",
+								"2",
+								"images"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"books\": [\n        {\n            \"book_id\": 2,\n            \"quanity\": 1\n        }\n    ],\n    \"shipping_address\": {\n        \"fullname\": \"Pritesh\",\n        \"Address1\": \"13\",\n        \"Address2\": 123,\n        \"city\": \"\",\n        \"state\": \"\",\n        \"country\": \"\",\n        \"address_type\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{basurl}}/api/order",
+							"protocol": "http",
+							"host": [
+								"{{basurl}}"
+							],
+							"path": [
+								"api",
+								"order"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6InByaXRlc2giLCJlbWFpbCI6InByaXRlc2gubG9naW4xQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJHhaR3NOLlZjZHB0OC82TFZ0LjFLRnV6bEtrampaLi9tRzBrSkk2QXp4cloxWTBKM1lEVmQyIiwicm9sZSI6ImN1c3RvbWVyIiwiY3JlYXRlZEF0IjoiMjAyNi0wNC0yNVQxMTo1ODo1Mi4wMDBaIiwidXBkYXRlZEF0IjoiMjAyNi0wNC0yNVQxMTo1ODo1Mi4wMDBaIiwiaWF0IjoxNzc3MTE4MzM2fQ.k9n3ORfdMcxtFxvoVtMkcWE9S2sdhOGovnLmR7lNF6M",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6InByaXRlc2giLCJlbWFpbCI6InByaXRlc2gubG9naW5AZ21haWwuY29tIiwicGFzc3dvcmQiOiIkMmIkMTAkYUdiVWZFZC5LSUlpQkcxRGNkRGNKZTBNU2wubzU1eVNmS0FsQWlLcUtCREYxdkxZOWpCV3kiLCJyb2xlIjoiYWRtaW4iLCJjcmVhdGVkQXQiOiIyMDI2LTA0LTI1VDA4OjQ4OjQ0LjAwMFoiLCJ1cGRhdGVkQXQiOiIyMDI2LTA0LTI1VDA4OjQ4OjQ0LjAwMFoiLCJpYXQiOjE3NzcxMDkxNjF9.bJSgPfFRkTwo6xfgPd9L57v7wvPLJ3nDiCdsVbt7lqs",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "basurl",
+			"value": "localhost:5000",
+			"type": "default"
+		},
+		{
+			"key": "bearerToken",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6InByaXRlc2giLCJlbWFpbCI6InByaXRlc2gubG9naW5AZ21haWwuY29tIiwicGFzc3dvcmQiOiIkMmIkMTAkYUdiVWZFZC5LSUlpQkcxRGNkRGNKZTBNU2wubzU1eVNmS0FsQWlLcUtCREYxdkxZOWpCV3kiLCJyb2xlIjoiYWRtaW4iLCJjcmVhdGVkQXQiOiIyMDI2LTA0LTI1VDA4OjQ4OjQ0LjAwMFoiLCJ1cGRhdGVkQXQiOiIyMDI2LTA0LTI1VDA4OjQ4OjQ0LjAwMFoiLCJpYXQiOjE3NzcxMDg4MDl9.4vEh_GcwygCH_M6RO8sEhEFan15Rorm5h59Bbk6MHOI\"",
+			"type": "default"
+		}
+	]
+}

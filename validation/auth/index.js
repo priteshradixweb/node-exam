@@ -17,9 +17,9 @@ export const loginRules = [
     body('email').trim().notEmpty().withMessage({ message: "Email is required", code: 'EMAIL_NOT_REQUIRED' }).isEmail().withMessage({ message: "Email must be valid email", code: 'EMAIL_NOT_VALID' }).custom(async value => {
         const existingUser = await User.findOne({ where: { email: value } });
         if (!existingUser) {
-            throw new Error('user is invalid ');
+            throw new Error('user is invalid');
         }
-    }).withMessage({ message: "user is invalid ", code: "EMAIL_NOT_EXITS" }),
+    }).withMessage({ message: "Invalid cred", code: 'INVALID_CRED' }),
     body('password').trim().notEmpty().withMessage({ message: "Password is required", code: 'PASSWORD_REQUIRED' })
 ]
 

@@ -21,8 +21,8 @@ export const login = async (payload) => {
     const user = await getUser(payload);
     const ok = await bcrypt.compare(payload.password, user.password)
     if (!ok) {
-        const error = new Error("Enter password is wrong");
-        error.code = 'WRONG_PASSWORD';
+        const error = new Error("Invalid cred");
+        error.code = 'INVALID_CRED';
         throw error;
     }
     console.log(process.env.JWT_SECRET);

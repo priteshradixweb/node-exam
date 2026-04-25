@@ -1,4 +1,6 @@
 import Book from "./book.js";
 import User from "./user.js";
+import BookImage from './bookImage.js';
 
-export { Book, User };
+Book.hasMany(BookImage, { foreignKey: 'book_id' });
+export { Book, User, BookImage };

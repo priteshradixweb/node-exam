@@ -6,7 +6,6 @@ dotenv.config();
 
 const auth = (type = 'admin') => async (req, res, next) => {
     const authHeader = req?.headers['authorization'];
-    console.log(authHeader);
     if (!authHeader?.startsWith('Bearer ')) {
         return sendError(res, 401, { message: "Invalid token", code: "INVALID_TOKEN" });
     }

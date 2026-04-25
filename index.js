@@ -8,9 +8,11 @@ dotenv.config();
 const PORT = process.env.APP_PORT;
 const app = express();
 
-
 // API middleware
 app.use(express.json());
+
+//File 
+app.use(express.urlencoded({ extended: true }));
 
 // Routes
 app.use('/api/auth/', authRoutes);

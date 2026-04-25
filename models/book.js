@@ -33,7 +33,7 @@ const Book = sequelize.define('Book', {
     {
         tableName: 'books',
         underscored: true,
-        scopes: {
+        defaultScope: {
             where: {
                 deletedAt: null
             }

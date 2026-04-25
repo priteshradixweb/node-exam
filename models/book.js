@@ -1,5 +1,5 @@
 import { DataTypes } from "sequelize";
-import sequelize from "../services/db";
+import sequelize from "../services/db.js";
 
 const Book = sequelize.define('Book', {
     title: {
@@ -15,7 +15,9 @@ const Book = sequelize.define('Book', {
     price: {
         type: DataTypes.DECIMAL,
     },
-    stockQuantity
-});
+},
+    {
+        tableName: 'users'
+    });
 
 export default Book;

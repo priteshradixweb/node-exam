@@ -1,5 +1,5 @@
 import { DataTypes } from "sequelize";
-import sequelize from "../services/db";
+import sequelize from "../services/db.js";
 
 const User = sequelize.define('User', {
     name: {
@@ -17,6 +17,10 @@ const User = sequelize.define('User', {
     createdAt: {
         type: DataTypes.DATE
     }
-});
+},
+    {
+        tableName: 'users'
+    }
+);
 
 export default User;

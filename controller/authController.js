@@ -1,8 +1,13 @@
 
+import { matchedData } from 'express-validator';
 import { sendResponse } from '../utils/responseHelper.js';
-export const register = (req, res) => {
+import * as authService from '../services/authService.js';
+
+export const register = async(req, res) => {
     try {
-        sendResponse(res, "Registered successfully");
+        let data = matchedData(req, { includeOptionals: true });
+        await authService.createUser(data);
+        sendResponse(res, "Registered successfully", data);
     } catch (error) {
         sendResponse(res, error.message);
     }

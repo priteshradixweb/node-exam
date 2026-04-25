@@ -17,6 +17,8 @@ This project follows a modular structure . i have used **Service-Controller** pa
 
 ### Prerequisites
 Before running the project, you must set up your environment variables. 
+I have used mysql as database to develop this project
+
 1. Copy the example environment file:
    ```bash
    cp .env.example .env
@@ -24,6 +26,7 @@ Before running the project, you must set up your environment variables.
 2. Open `.env` and fill in the required values.
 
 ### Installation & Execution
+Node version : v24.15.0
 To install dependencies and start the application, run:
 
 ```bash
@@ -34,4 +37,4 @@ npm install
 npm run start
 ```
 
-# use this file for postman collection available in root Bookstore api.postman_collection.json 
+# use this file for postman collection available in Bookstore api.postman_collection.json 
